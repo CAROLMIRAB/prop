@@ -1,0 +1,58 @@
+version: '1.0'
+
+services:
+  api:
+    build:
+      target: api
+    tty: true
+    stdin_open: true
+    container_name: api
+    environment:
+      - APACHE_RUN_USER=#1000
+      - APACHE_RUN_GROUP=#1000
+    volumes:
+      - ./packages/api:/var/www/api
+    ports: 
+      - 8000:80
+    links:
+      - pgsql
+    networks:
+      ppnetwork:
+        ipv4_address: 172.20.0.10
+  
+  client:
+    build: 
+      target: client
+    tty: true
+    stdin_open: true
+    container_name: client
+    volumes:
+      - ./packages/client:/app 
+    ports: 
+      - 3003:3003
+    networks:
+      ppnetwork:
+        ipv4_address: 172.20.0.11  
+
+  pgsql:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    networks:
+      - ppnetwork
+
+networks:
+  ppnetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+
+
+
+
