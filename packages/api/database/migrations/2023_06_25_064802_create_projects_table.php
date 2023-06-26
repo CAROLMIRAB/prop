@@ -14,19 +14,20 @@ return new class extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('name');
             $table->text('description');
             $table->string('image');
             $table->integer('price');
             $table->json('specs');
+            $table->unsignedBigInteger('offer_id');
+            $table->unsignedBigInteger('type_id');
+            $table->timestamps();
+
             $table->foreign('offer_id')->references('id')
-                ->on('offers')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->on('offers');
             $table->foreign('type_id')->references('id')
                 ->on('types');
-            $table->timestamps();
         });
     }
 

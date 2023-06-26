@@ -21,7 +21,6 @@ class Place extends Model
         "comuna",
         "route",
         "number",
-        "route",
         "placeid"
     ];
 }
