@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description');
+            $table->string('image');
+            $table->integer('price');
+            $table->json('specs');
+            $table->foreign('offer_id')->references('id')
+                ->on('offers')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('type_id')->references('id')
+                ->on('types');
             $table->timestamps();
         });
     }
