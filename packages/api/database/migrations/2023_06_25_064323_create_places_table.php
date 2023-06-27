@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string("route");
             $table->string("number");
             $table->string("placeid");
+            $table->string("country");
             $table->timestamps();
         });
     }

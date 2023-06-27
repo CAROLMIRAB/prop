@@ -31,8 +31,9 @@ RUN php artisan key:generate
 COPY ./packages/api/api.conf /etc/apache2/sites-available/
 RUN a2ensite api.conf && a2dissite 000-default.conf && service apache2 restart
 USER root
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 EXPOSE 80
+COPY ./run.sh /tmp   
+ENTRYPOINT ["/tmp/run.sh"]
 
 FROM node:14 as builder
 WORKDIR /app

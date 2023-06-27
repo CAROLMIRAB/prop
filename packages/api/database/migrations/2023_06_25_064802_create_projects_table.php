@@ -18,16 +18,20 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('image');
+            $table->string('address');
             $table->integer('price');
             $table->json('specs');
             $table->unsignedBigInteger('offer_id');
             $table->unsignedBigInteger('type_id');
+            $table->unsignedBigInteger('place_id');
             $table->timestamps();
 
             $table->foreign('offer_id')->references('id')
                 ->on('offers');
             $table->foreign('type_id')->references('id')
                 ->on('types');
+            $table->foreign('place_id')->references('id')
+                ->on('places');
         });
     }
 

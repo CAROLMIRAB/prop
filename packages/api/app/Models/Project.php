@@ -17,10 +17,12 @@ class Project extends Model
         "name",
         "description",
         "image",
+        "address",
         "price",
         "specs",
         "offer_id",
         "type_id",
+        "place_id"
 
     ];
 
