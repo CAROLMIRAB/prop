@@ -17,9 +17,7 @@ RUN apt-get update && apt-get install -y \
   git \
   curl \
   wget
-
 ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
-
 RUN wget -O composer-setup.php https://getcomposer.org/installer \ 
   && php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
@@ -36,17 +34,18 @@ USER root
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 EXPOSE 80
 
-FROM node:14 as client
+FROM node:14 as builder
 WORKDIR /app
 COPY ./packages/client/package*.json  ./
 COPY ./packages/client/  ./
 RUN npm install 
 RUN npm cache clean --force
-RUN npm run build
+CMD ["npm", "run", "build"]
 
-FROM nginx:1.25.1-alpine
-WORKDIR /usr/share/nginx/html
-RUN rm -rf ./*
-COPY --from=builder /app/dist .
-ENTRYPOINT [ "nginx", "-g", "deamon off;" ]
+FROM nginx:stable-alpine as client
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
