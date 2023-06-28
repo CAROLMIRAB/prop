@@ -17,8 +17,9 @@ class ResponsesBody
     {
         $response = [
             'success' => true,
-            'data'    => $result,
             'message' => $message,
+            'code' => $code,
+            'data'    => $result
         ];
         return response()->json($response, $code);
     }

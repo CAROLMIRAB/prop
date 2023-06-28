@@ -7,6 +7,8 @@ class ApiGeo
     /**
      * places
      *
+     * Curl a la api de google para buscar la direccion y guardar el place
+     *
      * @param  mixed $address
      * @return void
      */
@@ -15,10 +17,15 @@ class ApiGeo
         $apiURL = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . $address . '&components=country:CL&key=' . env('API_GEO_KEY');
         $client = new \GuzzleHttp\Client();
         $request = $client->request('GET', $apiURL);
-
-
         $statusCode = $request->getStatusCode();
+
+        if ($statusCode != 200) return false;
+
         $responseBody = json_decode($request->getBody(), true);
+
+        $lat = $responseBody['results'][0]['geometry']['location']['lat'];
+        $long = $responseBody['results'][0]['geometry']['location']['lng'];
+        $placeid = $responseBody['results'][0]['place_id'];
 
         foreach ($responseBody['results'][0]['address_components'] as $a) {
             if ($a['types'][0] == 'route') $route = $a['long_name'];
@@ -30,14 +37,14 @@ class ApiGeo
         }
 
         $data = [
-            "lat" => $responseBody['results'][0]['geometry']['location']['lat'],
-            "long" => $responseBody['results'][0]['geometry']['location']['lng'],
+            "lat" => $lat,
+            "long" => $long,
             "region" => $region,
             "provincia" => $provincia,
             "comuna" => $comuna,
             "route" => $route,
             "number" => $number,
-            "placeid" => $responseBody['results'][0]['place_id'],
+            "placeid" => $placeid,
             "country" => $country
         ];
 

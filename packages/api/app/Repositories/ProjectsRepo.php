@@ -5,6 +5,11 @@ namespace App\Repositories;
 use App\Models\Place;
 use App\Models\Project;
 
+/**
+ * ProjectRepo
+ *
+ * En esta clase estan todas las consultas para la tabla projects
+ */
 class ProjectRepo
 {
 
@@ -102,7 +107,10 @@ class ProjectRepo
     public function delete($id)
     {
         $project = Project::find($id);
-        $project->delete();
+        if ($project) {
+            $place = Place::find($project->place_id)->delete();
+            $project->delete();
+        }
 
         return $project;
     }

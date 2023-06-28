@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Classes\ApiGeo;
 use App\Classes\ResponsesBody;
+use App\Collections\ProjectCollection;
 use App\Repositories\ProjectRepo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -19,14 +20,22 @@ class ProjectController extends Controller
     private $projectRepo;
 
     /**
+     * projectRepo
+     *
+     * @var mixed
+     */
+    private $projectCollection;
+
+    /**
      * __construct
      *
      * @param  mixed $projectRepo
      * @return void
      */
-    public function __construct(ProjectRepo $projectRepo)
+    public function __construct(ProjectRepo $projectRepo, ProjectCollection $projectCollection)
     {
         $this->projectRepo = $projectRepo;
+        $this->projectCollection = $projectCollection;
     }
 
     /**
@@ -46,9 +55,9 @@ class ProjectController extends Controller
         $region = $request['region'];
 
         $projects = $this->projectRepo->getProjectsWithPlaces($type, $pricemin, $pricemax, $comuna, $region);
+        $projects = $this->projectCollection->renderProjects($projects);
 
-        $response = ResponsesBody::responseSuccess("Todas los proyectos", 200, $projects);
-        return $response;
+        return ResponsesBody::responseSuccess("Todos los proyectos", 200, $projects);
     }
 
     /**
@@ -80,10 +89,12 @@ class ProjectController extends Controller
         $requestData = $request->all();
         $requestData['specs'] = json_encode($request->specs);
         $places = ApiGeo::places($requestData['address']);
+        if (!$places) {
+            return ResponsesBody::responseError('Ocurrió un error con la dirección', 400);
+        }
         $project = $this->projectRepo->store($requestData, $places);
-        $response = ResponsesBody::responseSuccess("Guardaste un proyecto de forma exitosa", 201, $project);
 
-        return $response;
+        return ResponsesBody::responseSuccess("Guardaste un proyecto de forma exitosa", 201, $project);
     }
 
     /**
@@ -115,8 +126,7 @@ class ProjectController extends Controller
             return ResponsesBody::responseError('Error de validación', 404, $validator->errors());
         }
         $project  = $this->projectRepo->update($id, $request->all());
-        $response = ResponsesBody::responseSuccess("El proyecto ha sido actualizado", 200, []);
-        return $response;
+        return ResponsesBody::responseSuccess("El proyecto ha sido actualizado", 200, []);
     }
 
     /**
@@ -130,7 +140,6 @@ class ProjectController extends Controller
     public function delete($id)
     {
         $project = $this->projectRepo->delete($id);
-        $response = ResponsesBody::responseSuccess("El proyecto ha sido eliminado", 204, []);
-        return $response;
+        return ResponsesBody::responseSuccess("El proyecto ha sido eliminado", 204, []);
     }
 }
