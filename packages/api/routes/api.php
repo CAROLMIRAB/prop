@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('projects', 'ProjectController@getProjects')->name('all-project');
+Route::post('create', 'ProjectController@create')->name('create-project');
+Route::put('project/{id}', 'ProjectController@update')->name('update-project');
+Route::delete('project/{id}', 'ProjectController@delete')->name('delete-project');

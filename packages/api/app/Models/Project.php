@@ -23,5 +23,42 @@ class Project extends Model
         "offer_id",
         "type_id",
         "place_id"
+
     ];
+
+    /**
+     * place
+     *
+     * relacion con tabla places
+     *
+     * @return void
+     */
+    public function place()
+    {
+        return $this->hasOne(Place::class);
+    }
+
+    /**
+     * offer
+     *
+     * relación con tabla offers
+     *
+     * @return void
+     */
+    public function offer()
+    {
+        return $this->hasOne(Offer::class);
+    }
+
+    /**
+     * types
+     *
+     * relación con tabla types
+     *
+     * @return void
+     */
+    public function type()
+    {
+        return $this->hasOne(Type::class);
+    }
 }

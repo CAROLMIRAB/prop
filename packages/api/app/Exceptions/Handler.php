@@ -39,14 +39,16 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
-        });
-        $this->renderable(function ($request) {
+        })->stop();
+
+        $this->renderable(function (NotFoundHttpException $e, $request) {
             if ($request->wantsJson()) {
                 return ResponsesBody::responseError('No encontrado', 404, []);
             }
             return ResponsesBody::responseError('No encontrado', 404, []);
         });
-        $this->renderable(function ($request) {
+
+        $this->renderable(function (MethodNotAllowedHttpException $e, $request) {
             return ResponsesBody::responseError('No encontrado', 404, []);
         });
     }
