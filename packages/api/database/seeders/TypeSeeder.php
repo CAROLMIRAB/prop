@@ -15,7 +15,9 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
+        \Schema::disableForeignKeyConstraints();
         Type::truncate();
+        \Schema::enableForeignKeyConstraints();
         $data = [
             ["id" => 1, "name" => "Departamento Nuevo"],
             ["id" => 2, "name" => "Departamento SemiNuevo"],

@@ -15,9 +15,11 @@ class OfferSeeder extends Seeder
      */
     public function run()
     {
+        \Schema::disableForeignKeyConstraints();
         Offer::truncate();
+        \Schema::disableForeignKeyConstraints();
 
-        $data = [[]];
+        $data = [["description" => "Oferta de Junio", "offer" => 5]];
 
         foreach ($data as $item) {
             Offer::create($item);

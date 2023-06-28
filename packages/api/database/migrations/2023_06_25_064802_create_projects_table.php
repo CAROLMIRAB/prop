@@ -21,17 +21,17 @@ return new class extends Migration
             $table->string('address');
             $table->integer('price');
             $table->json('specs');
-            $table->unsignedBigInteger('offer_id');
+            $table->unsignedBigInteger('offer_id')->nullable();
             $table->unsignedBigInteger('type_id');
             $table->unsignedBigInteger('place_id');
             $table->timestamps();
 
             $table->foreign('offer_id')->references('id')
-                ->on('offers');
+                ->on('offers')->onDelete('cascade');
             $table->foreign('type_id')->references('id')
-                ->on('types');
+                ->on('types')->onDelete('cascade');
             $table->foreign('place_id')->references('id')
-                ->on('places');
+                ->on('places')->onDelete('cascade');
         });
     }
 

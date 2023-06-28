@@ -15,8 +15,9 @@ class PlaceSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('places')->truncate();
-
+        \Schema::disableForeignKeyConstraints();
+        Place::truncate();
+        \Schema::disableForeignKeyConstraints();
         $data = [
             [
                 "id" => 1,
