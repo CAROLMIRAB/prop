@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "d0722265-db54-4068-98df-a4fc55e4fe6a",
+		"name": "Propital",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "2429916"
+	},
+	"item": [
+		{
+			"name": "Crear Proyecto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n                \"name\": \"San Francisco\",\r\n                \"description\": \"alguna description\",\r\n                \"image\": \"/images/eco_estacion.png\",\r\n                \"address\": \"San Francisco de asis 115\",\r\n                \"price\": \"1994\",\r\n                \"area\": 50,\r\n                \"specs\": [{\"Habitaciones\" : \"1 / 2\"}, {\"Baños\": \"1 / 2\"}, {\"Estacionamiento\":\"no\"}],\r\n                \"offer_id\" : null,\r\n                \"type_id\" : 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/create",
+				"description": "Crea un proyecto nuevo\n\n**Url:** [http://127.0.0.1:8000/api/create](http://127.0.0.1:8000/api/create)\n\nEndFragment\n\n| **Values** | **Description** |\n| --- | --- |\n| name | **(tipo string)** nombre del proyecto deber ser escrito como quiere que sea visualizadol en la web |\n| description | **(tipo string)**Esta descripción es la que saldrá junto con su propiedad |\n| address | **(tipo string)**Esta es la direccion donde está la propiedad debe ser escrita con nombre de la calle y número |\n| price | **(tipo string)** Este precio debe ser escrito en UF |\n| area | **(tipo number)** Esta es el area en metros cuadrados de la propiedad |\n| specs | **(tipo json)** En esta columna guardamos especificaciones de la propiedad |\n| type_id | **(tipo number)** Los tres ids disponibles son los siguientes  <br>**1** (Departamento Nuevo)  <br>**2** (Departamento SemiNuevo)  <br>**3** (Parcela) |\n\n### **Respuesta OK**\n\n``` json\n{\n    \"success\": true,\n    \"message\": \"Guardaste un proyecto de forma exitosa\",\n    \"code\": 201,\n    \"data\": true\n}\n\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Proyecto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n                \"name\": \"Eco Estacion\",\r\n                \"description\": \"dddddd\",\r\n                \"image\": \"/images/eco_estacion.png\",\r\n                \"address\": \"San Francisco de asis 115\",\r\n                \"price\": \"2000\",\r\n                \"area\": 24,\r\n                \"specs\": [{\"Habitaciones\" : \"1 / 2\"}, {\"Baños\": \"1 / 2\"}, {\"Estacionamiento\":\"no\"}],\r\n                \"offer_id\" : null,\r\n                \"type_id\" : 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/project/1",
+				"description": "Actualiza un proyecto enviando el id por la url y los parametros a actualizar. Para actualizar algun proyecto debes enviar un id de proyecto\n\n**Url:** [http://127.0.0.1:8000/api/project/{project_id}](http://127.0.0.1:8000/api/project/{project_id})\n\n| **Values** | **Description** |\n| --- | --- |\n| name | **(tipo string)** nombre del proyecto deber ser escrito como quiere que sea visualizadol en la web |\n| description | **(tipo string)**Esta descripción es la que saldrá junto con su propiedad |\n| address | **(tipo string)**Esta es la direccion donde está la propiedad debe ser escrita con nombre de la calle y número |\n| price | **(tipo string)** Este precio debe ser escrito en UF |\n| area | **(tipo number)** Esta es el area en metros cuadrados de la propiedad |\n| specs | **(tipo json)** En esta columna guardamos especificaciones de la propiedad |\n| type_id | **(tipo number)** Los tres ids disponibles son los siguientes  <br>**1** (Departamento Nuevo)  <br>**2** (Departamento SemiNuevo)  <br>**3** (Parcela) |\n\n### Respuesta Ok\n\n``` json\n{\n    \"success\": true,\n    \"message\": \"El proyecto ha sido actualizado\",\n    \"code\": 200,\n    \"data\": []\n}\n\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Todos los proyectos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/projects",
+				"description": "Obtiene todos los proyectos\n\nStartFragment\n\n**Url:** [http://127.0.0.1:8000/api/project](https://desktop.postman.com/?desktopVersion=10.14.2&userId=2429916&teamId=0)s\n\nEndFragment  \n\n### **Respuesta Ok**\n\n``` json\n{\n    \"success\": true,\n    \"message\": \"Todos los proyectos\",\n    \"code\": 200,\n    \"data\": [\n        {\n            \"name\": \"Eco Irarrazabal\",\n            \"description\": \"En Eco Irarrázaval, proyectos inmobiliario de 27 pisos, vive momentos únicos en sus exclusivos Espacios Más, diseñados por el reconocido estudio de interiorismo Enrique Concha & Co.\",\n            \"image\": \"/images/eco_irarrazabal.jpg\",\n            \"address\": \"Av Irarrazaval 5455, Ñuñoa\",\n            \"price\": 2706,\n            \"area\": 50,\n            \"specs\": [\n                {\n                    \"Habitaciones\": 0.5\n                },\n                {\n                    \"Baños\": 0.5\n                },\n                {\n                    \"Estacionamiento\": \"si\"\n                }\n            ],\n            \"offer_id\": \"En Eco Irarrázaval, proyectos inmobiliario de 27 pisos, vive momentos únicos en sus exclusivos Espacios Más, diseñados por el reconocido estudio de interiorismo Enrique Concha & Co.\",\n            \"type_id\": \"En Eco Irarrázaval, proyectos inmobiliario de 27 pisos, vive momentos únicos en sus exclusivos Espacios Más, diseñados por el reconocido estudio de interiorismo Enrique Concha & Co.\",\n            \"place\": {\n                \"lat\": \"-33.4535056\",\n                \"long\": \"-70.57397240000002\",\n                \"region\": \"Región Metropolitana\",\n                \"provincia\": \"Santiago\",\n                \"comuna\": \"Ñuñoa\",\n                \"route\": \"Av. Irarrázaval\",\n                \"number\": \"5455\",\n                \"placeid\": \"ChIJ-zgdy0rOYpYR9wGcC9EyZFY\",\n                \"country\": \"CL\"\n            }\n        }\n    ]\n}\n\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Proyecto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://127.0.0.1:8000/api/project/1",
+				"description": "Elimina un proyecto\n\nStartFragment\n\n**Url:** [http://127.0.0.1:8000/api/project/{project_id}](https://desktop.postman.com/?desktopVersion=10.14.2&userId=2429916&teamId=0)\n\nEndFragment"
+			},
+			"response": []
+		}
+	]
+}
