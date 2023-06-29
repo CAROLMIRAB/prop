@@ -96,13 +96,17 @@ const Filter = ({ types = [], comunas = [] }) => {
         types='UF'
         onChange={handleChangePrices}
       ></RangeButton>
-      <LoadingButton
-        variant='contained'
-        onClick={handleClick}
-        loading={loading}
+      <Box
+        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
       >
-        Filtrar
-      </LoadingButton>
+        <LoadingButton
+          variant='contained'
+          onClick={handleClick}
+          loading={loading}
+        >
+          Filtrar
+        </LoadingButton>
+      </Box>
     </Grid>
   );
 };
