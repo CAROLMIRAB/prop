@@ -19,6 +19,7 @@ const CardProject = ({
   subtitle = '',
   image = '',
   price = '',
+  area = '',
 }) => {
   return (
     <Grid
@@ -47,6 +48,14 @@ const CardProject = ({
             alt={image}
           />
           <CardContent>
+            <Typography
+              sx={{ mb: 1.5 }}
+              color='text.secondary'
+              variant='caption'
+              xs={{ position: 'flex-end' }}
+            >
+              {area}mt2
+            </Typography>
             <Typography
               gutterBottom
               variant='h6'

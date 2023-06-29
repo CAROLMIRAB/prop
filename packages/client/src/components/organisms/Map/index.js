@@ -58,7 +58,7 @@ const Map = ({ allProject }) => {
                 >
                   <CardMedia
                     sx={{ height: 140 }}
-                    image={`/images/${item.image}`}
+                    image={`${item.image}`}
                     title='green iguana'
                   />
                   <CardContent>

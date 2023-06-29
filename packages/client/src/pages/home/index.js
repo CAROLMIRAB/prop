@@ -67,6 +67,7 @@ const Home = () => {
                 subtitle={item.address}
                 price={item.price}
                 image={item.image}
+                area={item.area}
                 key={index}
               ></CardProject>
             );

@@ -11,7 +11,6 @@ const NavBar = ({ pages = [] }) => {
   return (
     <AppBar component='nav'>
       <Toolbar>
-        <MenuIcon />
         <Typography
           variant='h6'
           component='div'
