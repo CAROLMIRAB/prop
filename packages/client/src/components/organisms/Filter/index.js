@@ -85,7 +85,7 @@ const Filter = ({ types = [], comunas = [] }) => {
       <RangeButton
         label='Mt'
         min='10'
-        max='800'
+        max='500'
         types='mt2'
         onChange={handleChangeMt}
       ></RangeButton>
