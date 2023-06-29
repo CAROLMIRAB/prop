@@ -19,7 +19,7 @@ class ProjectCollection
     {
         $data = [];
         foreach ($projects as $item) {
-            $data = [
+            $data[] = [
                 'name' => $item->name,
                 'description' => $item->description,
                 "image" => $item->image,
