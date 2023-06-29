@@ -63,7 +63,15 @@ module.exports = {
       favicon: './public/favicon.png',
     }),
     new webpack.DefinePlugin({
-      process: { env: { mode: "'production'" } },
+      process: {
+        NODE_ENV: JSON.stringify('production'),
+        env: {
+          BASE_URL: JSON.stringify('http://172.20.0.12/api'),
+          MAPS_API_KEY: JSON.stringify(
+            'AIzaSyCA-RewmYII9N3Id0koJ6IjvMImZ3AZFvE'
+          ),
+        },
+      },
     }),
   ],
 };

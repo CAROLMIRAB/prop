@@ -7,7 +7,7 @@ import { GlobalContext } from '../../App';
 const MapRender = () => {
   const { allProject, setAllProject } = useContext(GlobalContext);
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: '',
+    googleMapsApiKey: process.env.MAPS_API_KEY,
   });
 
   if (!isLoaded)

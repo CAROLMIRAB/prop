@@ -10,7 +10,7 @@ module.exports = {
     clean: true,
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx', '.css'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx', 'css'],
     modules: [path.resolve(__dirname, 'public/assets/img'), 'node_modules'],
     alias: {
       Img: path.resolve(__dirname, 'public/assets/img'),
@@ -60,10 +60,18 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html',
-      favicon: './public/favicon.png',
+      favicon: './public/favicon.ico',
     }),
     new webpack.DefinePlugin({
-      process: { env: { mode: "'development'" } },
+      process: {
+        NODE_ENV: JSON.stringify('development'),
+        env: {
+          BASE_URL: JSON.stringify('http://127.0.0.1:8000/api'),
+          MAPS_API_KEY: JSON.stringify(
+            'AIzaSyCA-RewmYII9N3Id0koJ6IjvMImZ3AZFvE'
+          ),
+        },
+      },
     }),
   ],
 };

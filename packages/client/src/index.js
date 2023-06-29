@@ -3,8 +3,8 @@ import { render } from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-export const baseUrl = 'http://127.0.0.1:8000/api';
+console.log(process.env);
+export const baseUrl = process.env.BASE_URL;
 const root = document.getElementById('root');
 render(
   <React.StrictMode>
