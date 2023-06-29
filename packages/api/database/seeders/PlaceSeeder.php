@@ -69,8 +69,8 @@ class PlaceSeeder extends Seeder
             ],
             [
                 "id" => 5,
-                "lat" => "-33.472701",
-                "long" => "-70.6480521",
+                "lat" => "-33.3786434",
+                "long" => "-70.4936031",
                 "region" => "Región Metropolitana",
                 "provincia" => "Santiago",
                 "comuna" => "Las Condes",
