@@ -1,7 +1,7 @@
-36 error Error: Command failed with exit code 128: git add -- packages/client/package.json packages/client/package-lock.json packages/api/package.json lerna.json package-lock.json
-36 error fatal: Pathspec 'packages/client/package.json' is in submodule 'packages/client'
-36 error     at makeError (c:\npm\node_modules\lerna\node_modules\execa\lib\error.js:59:11)
-36 error     at handlePromise (c:\npm\node_modules\lerna\node_modules\execa\index.js:114:26)
-36 error     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-36 error     at async VersionCommand.updatePackageVersions (c:\npm\node_modules\lerna\dist\index.js:8276:11)
-36 error     at async Promise.all (index 0)
+35 error Error: Command failed with exit code 128: git add -- packages/client/package.json packages/client/package-lock.json packages/api/package.json lerna.json package-lock.json
+35 error fatal: Pathspec 'packages/client/package.json' is in submodule 'packages/client'
+35 error     at makeError (c:\npm\node_modules\lerna\node_modules\execa\lib\error.js:59:11)
+35 error     at handlePromise (c:\npm\node_modules\lerna\node_modules\execa\index.js:114:26)
+35 error     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+35 error     at async VersionCommand.updatePackageVersions (c:\npm\node_modules\lerna\dist\index.js:8276:11)
+35 error     at async Promise.all (index 0)
