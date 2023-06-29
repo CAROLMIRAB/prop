@@ -39,7 +39,10 @@ const Filter = ({ types = [], comunas = [] }) => {
   };
 
   return (
-    <Grid md={12}>
+    <Grid
+      item
+      md={12}
+    >
       <Box
         component='form'
         sx={{
@@ -75,8 +78,16 @@ const Filter = ({ types = [], comunas = [] }) => {
       </Box>
       <RangeButton
         label='Precio'
+        min='10'
+        max='800'
+        types='mt2'
+        onChange={handleChangePrices}
+      ></RangeButton>
+      <RangeButton
+        label='Precio'
         min='100'
         max='20000'
+        types='UF'
         onChange={handleChangePrices}
       ></RangeButton>
       <LoadingButton

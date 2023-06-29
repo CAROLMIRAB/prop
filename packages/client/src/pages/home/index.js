@@ -27,6 +27,7 @@ const Home = () => {
   return (
     <Template>
       <Grid
+        item
         container
         md={3}
         mt={10}
@@ -39,6 +40,7 @@ const Home = () => {
         }}
       >
         <Grid
+          item
           md={12}
           sx={{
             p: 2,
@@ -53,11 +55,9 @@ const Home = () => {
           ></Filter>
         </Grid>
         <Grid
+          item
           container
           md={12}
-          sx={{
-            gap: 3,
-          }}
         >
           {allProject.map((item, index) => {
             return (
@@ -67,12 +67,14 @@ const Home = () => {
                 subtitle={item.address}
                 price={item.price}
                 image={item.image}
+                key={index}
               ></CardProject>
             );
           })}
         </Grid>
       </Grid>
       <Grid
+        item
         container
         md={9}
         style={{ gap: 15 }}

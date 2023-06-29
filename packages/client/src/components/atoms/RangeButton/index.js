@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import LoadingButton from '@mui/lab/LoadingButton';
-import { Box, Slider, TextField, Grid } from '@mui/material';
+import { Slider, TextField, Grid, InputAdornment } from '@mui/material';
 
-const RangeButton = ({ label = '', min = 0, max = 0, onChange }) => {
+const RangeButton = ({
+  label = '',
+  min = 0,
+  max = 0,
+  types = '',
+  onChange,
+}) => {
   const [value, setValue] = useState([100, 20000]);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -10,11 +15,9 @@ const RangeButton = ({ label = '', min = 0, max = 0, onChange }) => {
     console.log(value[0], value[1]);
   };
   return (
-    <Grid
-      container
-      direction='horizontal'
-    >
+    <Grid container>
       <Grid
+        item
         md={6}
         sx={{ maxWidth: '100%' }}
       >
@@ -24,24 +27,39 @@ const RangeButton = ({ label = '', min = 0, max = 0, onChange }) => {
           label='Desde'
           size='small'
           sx={{ maxWidth: '100%', paddingRight: 1 }}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position='start'>{types}</InputAdornment>
+            ),
+          }}
         />
       </Grid>
-      <Grid md={6}>
+      <Grid
+        item
+        md={6}
+      >
         <TextField
           value={value[1]}
           id={'hasta'}
           label='Hasta'
           size='small'
           sx={{ maxWidth: '100%' }}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position='start'>{types}</InputAdornment>
+            ),
+          }}
         />
       </Grid>
-      <Grid md={12}>
+      <Grid
+        item
+        md={12}
+      >
         <Slider
-          getAriaLabel={() => 'Precio'}
           value={value}
           valueLabelDisplay='auto'
-          max={20000}
-          min={100}
+          max={parseInt(max)}
+          min={parseInt(min)}
           onChange={handleChange}
           sx={{ maxWidth: '100%', gap: 3 }}
         />

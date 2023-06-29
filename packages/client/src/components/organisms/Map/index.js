@@ -52,7 +52,10 @@ const Map = ({ allProject }) => {
                   lng: parseFloat(item.place.long),
                 }}
               >
-                <Card sx={{ maxWidth: 150 }}>
+                <Card
+                  sx={{ maxWidth: 150 }}
+                  key={index}
+                >
                   <CardMedia
                     sx={{ height: 140 }}
                     image={`/images/${item.image}`}

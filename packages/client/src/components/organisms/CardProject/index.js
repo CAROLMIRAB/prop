@@ -21,23 +21,24 @@ const CardProject = ({
   price = '',
 }) => {
   return (
-    <Grid md={5}>
+    <Grid
+      item
+      md={6}
+      sx={{
+        padding: 1,
+      }}
+    >
       <Card>
-        <CardHeader
-          sx={{ bgcolor: 'transparent' }}
-          action={
-            <>
-              <Fab
-                variant='extended'
-                size='small'
-                color='primary'
-                aria-label='add'
-              >
-                {price} UF
-              </Fab>
-            </>
-          }
-        />
+        <Fab
+          variant='extended'
+          size='small'
+          color='primary'
+          aria-label='add'
+          sx={{ position: 'absolute', margin: 1 }}
+        >
+          {price} UF
+        </Fab>
+
         <CardActionArea>
           <CardMedia
             component='img'

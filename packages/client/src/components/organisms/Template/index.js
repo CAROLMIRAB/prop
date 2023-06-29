@@ -7,7 +7,10 @@ const pages = ['Products', 'Pricing', 'Blog'];
 
 const Template = ({ children }) => {
   return (
-    <Grid container>
+    <Grid
+      item
+      container
+    >
       <NavBar pages={pages}></NavBar>
 
       {children}
