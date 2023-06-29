@@ -8,11 +8,10 @@ const RangeButton = ({
   types = '',
   onChange,
 }) => {
-  const [value, setValue] = useState([100, 20000]);
+  const [value, setValue] = useState([min, max]);
   const handleChange = (event, newValue) => {
     setValue(newValue);
     onChange(event, value);
-    console.log(value[0], value[1]);
   };
   return (
     <Grid container>

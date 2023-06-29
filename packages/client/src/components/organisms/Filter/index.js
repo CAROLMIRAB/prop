@@ -11,6 +11,7 @@ const Filter = ({ types = [], comunas = [] }) => {
   const [selectedType, setSelectedType] = useState('');
   const [selectedComuna, setSelectedComuna] = useState('');
   const [priceRange, setPriceRange] = useState([0, 0]);
+  const [mtRange, setMtRange] = useState([0, 0]);
   const [loading, setLoading] = useState(false);
 
   const handleChangeType = (e) => {
@@ -22,6 +23,9 @@ const Filter = ({ types = [], comunas = [] }) => {
   const handleChangePrices = (e, value) => {
     setPriceRange(value);
   };
+  const handleChangeMt = (e, value) => {
+    setMtRange(value);
+  };
   const handleClick = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -30,7 +34,9 @@ const Filter = ({ types = [], comunas = [] }) => {
         selectedComuna,
         selectedType,
         priceRange[0],
-        priceRange[1]
+        priceRange[1],
+        mtRange[0],
+        mtRange[1]
       );
       setLoading(false);
       setAllProject(change_state);
@@ -77,11 +83,11 @@ const Filter = ({ types = [], comunas = [] }) => {
         />
       </Box>
       <RangeButton
-        label='Precio'
+        label='Mt'
         min='10'
         max='800'
         types='mt2'
-        onChange={handleChangePrices}
+        onChange={handleChangeMt}
       ></RangeButton>
       <RangeButton
         label='Precio'

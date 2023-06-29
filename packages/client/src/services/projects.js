@@ -6,12 +6,14 @@ export const getAllProject = async (
   comuna = '',
   type = '',
   pricemin = '',
-  pricemax = ''
+  pricemax = '',
+  areamin = '',
+  areamax = ''
 ) => {
   return await axios
     .get(`${baseUrl}/projects`, {
       headers,
-      params: { comuna, type, pricemin, pricemax },
+      params: { comuna, type, pricemin, pricemax, areamin, areamax },
     })
     .then((response) => {
       return response.data.data;

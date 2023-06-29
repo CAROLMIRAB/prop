@@ -43,7 +43,7 @@ const CardProject = ({
           <CardMedia
             component='img'
             height='140'
-            image={`/images/${image}`}
+            image={`${image}`}
             alt={image}
           />
           <CardContent>
