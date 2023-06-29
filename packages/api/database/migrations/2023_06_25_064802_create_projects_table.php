@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('address');
             $table->integer('price');
+            $table->integer('area');
             $table->json('specs');
             $table->unsignedBigInteger('offer_id')->nullable();
             $table->unsignedBigInteger('type_id');

@@ -25,6 +25,7 @@ class ProjectCollection
                 "image" => $item->image,
                 "address" => $item->address,
                 "price" => $item->price,
+                "area" => $item->area,
                 "specs" => json_decode($item->specs),
                 "offer_id" => $item->description,
                 "type_id" => $item->description,

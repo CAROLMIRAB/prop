@@ -19,6 +19,7 @@ class Project extends Model
         "image",
         "address",
         "price",
+        "area",
         "specs",
         "offer_id",
         "type_id",

@@ -27,6 +27,7 @@ class ProjectSeeder extends Seeder
                 "image" => "/images/eco_escalada.jpg",
                 "address" => "ALMIRANTE BLANCO ENCALADA 2521, SANTIAGO CENTRO",
                 "price" => "3888",
+                "area" => 80,
                 "specs" => json_encode([["Habitaciones" => 1 / 2], ["Baños" => 1 / 2], ["Estacionamiento" => "si"]]),
                 "offer_id" => null,
                 "type_id" => 1,
@@ -40,6 +41,7 @@ class ProjectSeeder extends Seeder
                 "image" => "/images/eco_irarrazabal.jpg",
                 "address" => "AV IRARRÁZAVAL 5455, ÑUÑOA",
                 "price" => "2706",
+                "area" => 50,
                 "specs" => json_encode([["Habitaciones" => 1 / 2], ["Baños" => 1 / 2], ["Estacionamiento" => "si"]]),
                 "offer_id" => 1,
                 "type_id" => 1,
@@ -52,6 +54,7 @@ class ProjectSeeder extends Seeder
                 "image" => "/images/eco_estacion.png",
                 "address" => "PLACILLA 65",
                 "price" => "1994",
+                "area" => 50,
                 "specs" => json_encode([["Habitaciones" => 1 / 2], ["Baños" => 1 / 2], ["Estacionamiento" => "no"]]),
                 "offer_id" => null,
                 "type_id" => 1,
@@ -64,10 +67,24 @@ class ProjectSeeder extends Seeder
                 "image" => "/images/eco_arauco.jpg",
                 "address" => "San Diego 2044, Santiago Centro",
                 "price" => "2724",
+                "area" => 100,
                 "specs" => json_encode([["Habitaciones" => 1 / 2], ["Baños" => 1 / 2], ["Estacionamiento" => "no"]]),
                 "offer_id" => 1,
                 "type_id" => 1,
                 "place_id" => 4
+            ],
+            [
+                "id" => 5,
+                "name" => "Sierra Plaza",
+                "description" => "",
+                "image" => "/images/eco_arauco.jpg",
+                "address" => "San José de la Sierra 93",
+                "price" => "2724",
+                "area" => 100,
+                "specs" => json_encode([["Habitaciones" => 1 / 2], ["Baños" => 1 / 2], ["Estacionamiento" => "no"]]),
+                "offer_id" => 1,
+                "type_id" => 1,
+                "place_id" => 5
             ],
 
         ];

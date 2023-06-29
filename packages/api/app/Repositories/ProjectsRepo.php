@@ -20,9 +20,9 @@ class ProjectRepo
      *
      * @return void
      */
-    public function getProjectsWithPlaces($type, $pricemin, $pricemax, $comuna, $region)
+    public function getProjectsWithPlaces($type, $pricemin, $pricemax, $comuna, $region, $areamin, $areamax)
     {
-        $query = "select name, description, image, address, price, specs, offer_id, type_id,
+        $query = "select name, description, image, address, price,area, specs, offer_id, type_id,
         lat, places.long, region, provincia, comuna, route, number, placeid, country
         from projects inner join places on places.id = projects.place_id where 1 ";
 
@@ -41,6 +41,10 @@ class ProjectRepo
 
         if (!empty($region)) {
             $query .= " and region = '$region'";
+        }
+
+        if (!empty($areamin)) {
+            $query .= " and area BETWEEN $areamin AND $areamax";
         }
 
         $projects = \DB::select($query);
@@ -87,6 +91,7 @@ class ProjectRepo
             "image" => $request['image'],
             "address" => $request['address'],
             "price" => $request['price'],
+            "area" => $request['area'],
             "specs" => json_encode($request['specs']),
             "offer_id" => $request['offer_id'],
             "type_id" => $request['type_id'],

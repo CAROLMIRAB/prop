@@ -67,6 +67,18 @@ class PlaceSeeder extends Seeder
                 "placeid" => "ChIJqcD10zjFYpYRWMdGF6PdJpo",
                 "country" => "CL"
             ],
+            [
+                "id" => 5,
+                "lat" => "-33.472701",
+                "long" => "-70.6480521",
+                "region" => "Región Metropolitana",
+                "provincia" => "Santiago",
+                "comuna" => "Las Condes",
+                "route" => "San José de la Sierra",
+                "number" => "93",
+                "placeid" => "ChIJqcD10zjFYpYRWMdGF6PdJpo",
+                "country" => "CL"
+            ],
         ];
 
         foreach ($data as $item) {

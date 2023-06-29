@@ -53,8 +53,10 @@ class ProjectController extends Controller
         $pricemax = $request['pricemax'];
         $comuna = $request['comuna'];
         $region = $request['region'];
+        $areamin = $request['areamin'];
+        $areamax = $request['areamax'];
 
-        $projects = $this->projectRepo->getProjectsWithPlaces($type, $pricemin, $pricemax, $comuna, $region);
+        $projects = $this->projectRepo->getProjectsWithPlaces($type, $pricemin, $pricemax, $comuna, $region, $areamin, $areamax);
         $projects = $this->projectCollection->renderProjects($projects);
 
         return ResponsesBody::responseSuccess("Todos los proyectos", 200, $projects);
