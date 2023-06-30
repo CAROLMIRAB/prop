@@ -11,20 +11,22 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx', 'css'],
-    modules: [path.resolve(__dirname, 'public/assets/img'), 'node_modules'],
-    alias: {
-      Img: path.resolve(__dirname, 'public/assets/img'),
-    },
+    modules: [path.resolve(__dirname, 'assets/images'), 'node_modules'],
   },
   mode: 'production',
   devtool: 'source-map',
   module: {
     rules: [
       {
-        test: /\.(pdf)$/i,
+        test: /\.(jpe?g|png|gif|svg)$/i,
         use: [
           {
             loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images/',
+              publicPath: 'assets/images/',
+            },
           },
         ],
       },
@@ -49,10 +51,6 @@ module.exports = {
         use: {
           loader: 'html-loader',
         },
-      },
-      {
-        type: 'asset',
-        test: /\.(png|jpg|jpeg|svg|gif)$/i,
       },
     ],
   },

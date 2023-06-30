@@ -8,7 +8,7 @@ import {
   CardActions,
   Button,
 } from '@mui/material';
-import markerSvg from '../../../assets/images/pin.svg';
+import markerSvg from '../../../assets/images/pin.png';
 
 const Map = ({ allProject }) => {
   const center = useMemo(() => ({ lat: -33.462111, lng: -70.67214 }), []);
@@ -32,7 +32,7 @@ const Map = ({ allProject }) => {
               }}
               icon={{
                 scaledSize: new window.google.maps.Size(50, 50),
-                url: { markerSvg },
+                url: `${markerSvg}`,
               }}
               onClick={(props, marker) => {
                 setSelectedElement(item);
