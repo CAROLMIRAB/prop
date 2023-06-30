@@ -8,7 +8,7 @@ import {
   CardActions,
   Button,
 } from '@mui/material';
-import markerSvg from '../../../assets/pin.svg';
+import markerSvg from '../../../assets/images/pin.svg';
 
 const Map = ({ allProject }) => {
   const center = useMemo(() => ({ lat: -33.462111, lng: -70.67214 }), []);
