@@ -29,7 +29,9 @@ services:
     volumes:
       - ./packages/client:/app 
     ports: 
-      - 3003:80
+      - 3004:80
+    depends_on: 
+      - api
     networks:
       ppnetwork:
         ipv4_address: 172.20.0.11  

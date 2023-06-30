@@ -40,11 +40,12 @@ WORKDIR /app
 COPY ./packages/client/package*.json  ./
 COPY ./packages/client/  ./
 RUN npm install 
+RUN npm run build
 RUN npm cache clean --force
-CMD ["npm", "run", "build"]
+
 
 FROM nginx:stable-alpine as client
-RUN rm -rf /usr/share/nginx/html/*
+
 COPY --from=builder /app/dist /usr/share/nginx/html
 COPY --from=builder /app/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
