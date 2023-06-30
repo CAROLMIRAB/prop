@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('projects', 'ProjectController@getProjects')->name('all-project');
-Route::post('create', 'ProjectController@create')->name('create-project');
-Route::put('project/{id}', 'ProjectController@update')->name('update-project');
-Route::delete('project/{id}', 'ProjectController@delete')->name('delete-project');
+//Rutas a las que se permitirá acceso
+
+Route::group(['prefix' => 'v1'], function () {
+    /* Products */
+    Route::get('projects', 'ProjectController@getProjects')->name('all-project');
+    Route::post('create', 'ProjectController@create')->name('create-project');
+    Route::put('project/{id}', 'ProjectController@update')->name('update-project');
+    Route::delete('project/{id}', 'ProjectController@delete')->name('delete-project');
+});
