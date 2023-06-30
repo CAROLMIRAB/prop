@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react';
 import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
-import CardProject from '../CardProject';
 import {
   Card,
   CardMedia,
@@ -9,6 +8,7 @@ import {
   CardActions,
   Button,
 } from '@mui/material';
+import markerSvg from '../../../assets/pin.svg';
 
 const Map = ({ allProject }) => {
   const center = useMemo(() => ({ lat: -33.462111, lng: -70.67214 }), []);
@@ -32,7 +32,7 @@ const Map = ({ allProject }) => {
               }}
               icon={{
                 scaledSize: new window.google.maps.Size(50, 50),
-                url: 'https://propital.s3.amazonaws.com/pin.svg',
+                url: { markerSvg },
               }}
               onClick={(props, marker) => {
                 setSelectedElement(item);
