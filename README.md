@@ -46,7 +46,8 @@ Ahora puedes verlo en funcionamiento aquí:
 
 Url client: http://localhost:3004/
 
-Para consumir la api lo puedes hacer desde la colleccion de postman (con documentación) agregada al proyecto que se llama Propital.postman_collection.json la puedes usar importando una colleccion en postman y agregando este archivo.
+Para consumir la api lo puedes hacer desde la colleccion de postman (con documentación) agregada al proyecto que se llama
+Propital.postman_collection.json la puedes usar importando una colleccion en postman y agregando este archivo.
 
 Url api: http://localhost:8000/
 
