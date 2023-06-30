@@ -67,7 +67,9 @@ module.exports = {
         NODE_ENV: JSON.stringify('production'),
         env: {
           BASE_URL: JSON.stringify('http://localhost:8000/api/v1'),
-          MAPS_API_KEY: JSON.stringify(''),
+          MAPS_API_KEY: JSON.stringify(
+            'AIzaSyCA-RewmYII9N3Id0koJ6IjvMImZ3AZFvE'
+          ),
         },
       },
     }),

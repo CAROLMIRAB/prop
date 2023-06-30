@@ -18,7 +18,7 @@ Esto puede tardar algunos minutos ¡puedes tomar un café mientras esperas!
 
 Para probar la api puedes encontrar una colleccion de postman llamada: Propital.postman_collection en la raiz de este proyecto allí podrás ver algo de la documentación necesaria para usar la api.
 
-Cuando veas este mensaje estamos listos para probar
+Cuando veas este mensaje estamos casi listos
 
 ```shell
 Container propital-mysql-1  Creating
@@ -36,11 +36,19 @@ Container client  Started
 
 ```
 
-Url api: http://localhost:8000/
+Por ultimo es necesario que corras este comando para crear la bd y agregar data de prueba
+
+```shell
+docker exec api php artisan migrate:fresh --seed
+```
+
+Ahora puedes verlo en funcionamiento aquí:
 
 Url client: http://localhost:3004/
 
 Para consumir la api lo puedes hacer desde la colleccion de postman (con documentación) agregada al proyecto que se llama Propital.postman_collection.json la puedes usar importando una colleccion en postman y agregando este archivo.
+
+Url api: http://localhost:8000/
 
 ### Used
 
