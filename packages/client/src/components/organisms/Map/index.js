@@ -32,7 +32,7 @@ const Map = ({ allProject }) => {
               }}
               icon={{
                 scaledSize: new window.google.maps.Size(50, 50),
-                url: '/images/pin.svg',
+                url: 'https://propital.s3.amazonaws.com/pin.svg',
               }}
               onClick={(props, marker) => {
                 setSelectedElement(item);

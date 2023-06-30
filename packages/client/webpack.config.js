@@ -10,7 +10,7 @@ module.exports = {
     clean: true,
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx', 'css'],
     modules: [path.resolve(__dirname, 'public/assets/img'), 'node_modules'],
     alias: {
       Img: path.resolve(__dirname, 'public/assets/img'),
@@ -66,10 +66,8 @@ module.exports = {
       process: {
         NODE_ENV: JSON.stringify('production'),
         env: {
-          BASE_URL: JSON.stringify('http://172.20.0.12/api'),
-          MAPS_API_KEY: JSON.stringify(
-            'AIzaSyCA-RewmYII9N3Id0koJ6IjvMImZ3AZFvE'
-          ),
+          BASE_URL: JSON.stringify('http://localhost:8000/api/v1'),
+          MAPS_API_KEY: JSON.stringify(''),
         },
       },
     }),

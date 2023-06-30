@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-console.log(process.env);
+
 export const baseUrl = process.env.BASE_URL;
 const root = document.getElementById('root');
 render(
