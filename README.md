@@ -1,6 +1,8 @@
 ## About
+Este proyecto es una pequeña aplicacion pensada para mostrar un mapa y la ubicación de todos los proyectos en venta de una 
+empresa inmobiliaria.
 
-Este proyecto es un monorepo lerna que cuenta con una aplicacion hecha en Laravel 9 y React 17 y con un entorno dockerizado.
+Es un monorepo lerna que cuenta con una aplicacion hecha en Laravel 9 y React 17 y con un entorno dockerizado.
 
 # Getting Started
 
