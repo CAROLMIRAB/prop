@@ -16,19 +16,19 @@ docker compose up -d
 
 Esto puede tardar algunos minutos ¡puedes tomar un café mientras esperas!
 
-Para probar la api puedes encontrar una colleccion de postman llamada: Propital.postman_collection en la raiz de este proyecto allí podrás ver algo de la documentación necesaria para usar la api.
+Para probar la api puedes encontrar una colleccion de postman llamada: Prop.postman_collection en la raiz de este proyecto allí podrás ver algo de la documentación necesaria para usar la api.
 
 Cuando veas este mensaje estamos casi listos
 
 ```shell
-Container propital-mysql-1  Creating
-Container propital-mysql-1  Created
+Container prop-mysql-1  Creating
+Container prop-mysql-1  Created
 Container api  Creating
 Container api  Created
 Container client  Creating
 Container client  Created
-Container propital-mysql-1  Starting
-Container propital-mysql-1  Started
+Container prop-mysql-1  Starting
+Container prop-mysql-1  Started
 Container api  Starting
 Container api  Started
 Container client  Starting
@@ -47,7 +47,7 @@ Ahora puedes verlo en funcionamiento aquí:
 Url client: http://localhost:3004/
 
 Para consumir la api lo puedes hacer desde la colleccion de postman (con documentación) agregada al proyecto que se llama
-Propital.postman_collection.json la puedes usar importando una colleccion en postman y agregando este archivo.
+Prop.postman_collection.json la puedes usar importando una colleccion en postman y agregando este archivo.
 
 Url api: http://localhost:8000/
 

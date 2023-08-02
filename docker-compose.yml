@@ -40,7 +40,7 @@ services:
     image: mysql
     restart: always
     environment:
-      - MYSQL_DATABASE=propital
+      - MYSQL_DATABASE=prop
       - MYSQL_ROOT_PASSWORD=mauFJcuf5dhRMQrjj
     ports:
       - '3306:3306'

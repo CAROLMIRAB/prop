@@ -16,7 +16,7 @@ const NavBar = ({ pages = [] }) => {
           component='div'
           sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
         >
-          Propital
+          Prop
         </Typography>
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           <ButtonBar
